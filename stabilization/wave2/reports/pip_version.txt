@@ -1,0 +1,1 @@
+pip 26.1.2 from /data/data/com.termux/files/usr/lib/python3.13/site-packages/pip (python 3.13)
