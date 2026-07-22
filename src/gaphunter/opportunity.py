@@ -1,24 +1,32 @@
 class Opportunity:
 
-    def __init__(self,company,problem,solution,value):
+    def __init__(
+        self,
+        company,
+        industry,
+        problem,
+        impact
+    ):
         self.company=company
+        self.industry=industry
         self.problem=problem
-        self.solution=solution
-        self.value=value
+        self.impact=impact
         self.score=0
 
     def calculate_score(self):
-        self.score=min(
-            100,
-            int(self.value/100)
+
+        self.score = (
+            self.impact * 10
         )
+
         return self.score
 
     def data(self):
+
         return {
             "company":self.company,
+            "industry":self.industry,
             "problem":self.problem,
-            "solution":self.solution,
-            "value":self.value,
+            "impact":self.impact,
             "score":self.score
         }
