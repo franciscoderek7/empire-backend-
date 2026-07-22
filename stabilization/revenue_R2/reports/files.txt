@@ -1,0 +1,16 @@
+src/offers/models/__init__.py
+src/offers/models/product.py
+src/offers/models/__pycache__/__init__.cpython-313.pyc
+src/offers/models/__pycache__/product.cpython-313.pyc
+src/offers/services/__init__.py
+src/offers/services/catalog.py
+src/offers/services/pricing.py
+src/offers/services/checkout.py
+src/offers/services/package_builder.py
+src/offers/services/__pycache__/__init__.cpython-313.pyc
+src/offers/services/__pycache__/catalog.cpython-313.pyc
+src/offers/services/__pycache__/checkout.cpython-313.pyc
+src/offers/services/__pycache__/package_builder.cpython-313.pyc
+src/offers/services/__pycache__/pricing.cpython-313.pyc
+src/offers/__init__.py
+src/offers/__pycache__/__init__.cpython-313.pyc

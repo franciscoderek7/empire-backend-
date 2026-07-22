@@ -1,0 +1,22 @@
+[
+ {
+  "name":"AI Website Package",
+  "price":499,
+  "company":"Francisco Holdings Inc."
+ },
+ {
+  "name":"PrimeDox AI Document Automation",
+  "price":499,
+  "company":"PrimeDox AI"
+ },
+ {
+  "name":"Gap Hunter Business Analysis",
+  "price":999,
+  "company":"Gap Hunter AI"
+ },
+ {
+  "name":"AI Security Assessment",
+  "price":999,
+  "company":"OmniGuard"
+ }
+]
