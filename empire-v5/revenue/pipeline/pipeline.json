@@ -1,0 +1,11 @@
+{
+ "stages":[
+  "visitor",
+  "demo_started",
+  "lead_created",
+  "qualified",
+  "proposal_sent",
+  "customer"
+ ],
+ "records":[]
+}
