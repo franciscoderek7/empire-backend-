@@ -1,0 +1,16 @@
+{
+  "services": [
+    {
+      "name": "PrimeDox AI",
+      "status": "needs_verification"
+    },
+    {
+      "name": "Francisco Holdings Consulting",
+      "status": "needs_verification"
+    },
+    {
+      "name": "AI Website Services",
+      "status": "needs_verification"
+    }
+  ]
+}

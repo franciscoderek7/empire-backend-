@@ -1,0 +1,20 @@
+{
+  "agents": [
+    {
+      "name": "PrimeDox",
+      "role": "document assistant"
+    },
+    {
+      "name": "OmniGuard",
+      "role": "security assistant"
+    },
+    {
+      "name": "Gap Hunter",
+      "role": "business analysis"
+    },
+    {
+      "name": "Empire Concierge",
+      "role": "general routing"
+    }
+  ]
+}

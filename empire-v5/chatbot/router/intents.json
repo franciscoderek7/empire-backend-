@@ -1,0 +1,29 @@
+{
+  "legal": [
+    "court",
+    "document",
+    "claim",
+    "motion",
+    "legal"
+  ],
+  "security": [
+    "hack",
+    "security",
+    "protect",
+    "threat"
+  ],
+  "business": [
+    "website",
+    "automation",
+    "AI",
+    "business"
+  ],
+  "cannabis": [
+    "cannabis",
+    "license",
+    "compliance"
+  ],
+  "default": [
+    "help"
+  ]
+}
