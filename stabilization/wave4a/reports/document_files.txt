@@ -1,0 +1,15 @@
+./backups/20260722/reports/status-report.md
+./backups/20260722/README.md
+./backups/wave3/docs/ARCHITECTURE.md
+./backups/wave3/docs/ROADMAP.md
+./gapHunter/templates/report_template.md
+./reports/status-report.md
+./README.md
+./docs/ARCHITECTURE.md
+./docs/ROADMAP.md
+./docs/system/runbook.md
+./stabilization/wave4a/backups/current/gapHunter/templates/report_template.md
+./recovery/README.md
+./api/README.md
+./database/migrations/README.md
+./security/security_policy.md
