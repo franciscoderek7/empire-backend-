@@ -41,6 +41,7 @@
 ./reports/master/revenue_test.txt
 ./reports/health/empty_files.txt
 ./data/knowledge/knowledge.json
+./data/omniguard/logs/audit.log
 ./data/revenue/revenue.json
 ./optimization/reports/git_branches.txt
 ./optimization/reports/git_history.txt

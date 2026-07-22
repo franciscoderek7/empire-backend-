@@ -13,6 +13,7 @@
 ./audit/file_structure.txt
 ./backups/20260722/README.md
 ./backups/fhi_backup_2026-07-22_07-47.tar.gz
+./backups/FHI_backup_20260722_080002.tar.gz
 ./logs/system/activity.log
 ./logs/system/wave4_complete.txt
 ./logs/system/wave5_complete.txt
@@ -27,6 +28,7 @@
 ./logs/archive/README.txt
 ./logs/health/system.log
 ./logs/errors/error.log
+./logs/master_20260722_080002.log
 ./config/domain-map.txt
 ./config/revenue-map.txt
 ./config/agent-registry.json
@@ -105,6 +107,17 @@
 ./reports/primedox_wave10/compile.txt
 ./reports/primedox_wave10/files.txt
 ./reports/health/file_inventory.txt
+./reports/health/empty_files.txt
+./reports/health/git_status.txt
+./reports/health/system_report.txt
+./reports/tests/link_scan.txt
+./reports/audit/production_checklist.md
+./reports/omniguard_wave12/compile.txt
+./reports/omniguard_wave12/files.txt
+./reports/revenue_wave14/compile.txt
+./reports/revenue_wave14/files.txt
+./reports/clone_factory_wave15/compile.txt
+./reports/clone_factory_wave15/files.txt
 ./README.md
 ./data/opportunities/opportunities.json
 ./data/customers/customers.json
@@ -384,3 +397,9 @@
 ./FHI_AI_CLONE_MARKETPLACE_WAVE9.sh
 ./FHI_PRIMEDOX_CORE_WAVE10.sh
 ./FHI_PRODUCTION_STABILIZER_WAVE11.sh
+./tools/link_check.py
+./FHI_OMNIGUARD_WAVE12.sh
+./FHI_GAP_HUNTER_WAVE13.sh
+./FHI_REVENUE_ENGINE_WAVE14.sh
+./FHI_AI_CLONE_FACTORY_WAVE15.sh
+./FHI_MASTER_DEPLOYMENT_ORCHESTRATOR.sh
