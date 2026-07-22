@@ -1,0 +1,71 @@
+
+<div id="empireAI">
+
+<button onclick="toggleEmpireChat()">
+🤖 Empire Concierge
+</button>
+
+<div id="empireWindow" style="display:none">
+
+<h3>Francisco Holdings Inc.</h3>
+
+<p>
+AI Concierge Online
+</p>
+
+<input
+id="aiInput"
+placeholder="Ask the Empire..."
+>
+
+<button onclick="submitQuestion()">
+Send
+</button>
+
+<div id="aiResponse"></div>
+
+</div>
+
+</div>
+
+<style>
+
+#empireAI{
+
+position:fixed;
+right:20px;
+bottom:20px;
+z-index:999;
+
+}
+
+#empireWindow{
+
+background:#111;
+color:white;
+padding:20px;
+border-radius:15px;
+width:300px;
+
+}
+
+</style>
+
+<script>
+
+function toggleEmpireChat(){
+
+let box=
+document.getElementById(
+"empireWindow"
+);
+
+box.style.display =
+box.style.display==="none"
+?"block"
+:"none";
+
+}
+
+</script>
+

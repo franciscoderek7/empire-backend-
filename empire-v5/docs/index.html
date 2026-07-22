@@ -77,6 +77,20 @@ SOULSTACK
 
 <script src="js/revenue.js"></script>
 <script src="js/cta.js"></script>
+
+<div id="chatMount"></div>
+
+<script>
+fetch("chat/widget.html")
+.then(r=>r.text())
+.then(t=>{
+document.getElementById("chatMount").innerHTML=t;
+});
+</script>
+
+<script src="js/agent-router.js"></script>
+
 </body>
+
 
 </html>

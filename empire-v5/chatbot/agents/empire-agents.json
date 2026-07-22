@@ -1,0 +1,29 @@
+{
+  "agents":[
+    {
+      "name":"PrimeDox AI",
+      "keywords":["document","draft","contract","template","pdf"],
+      "destination":"primedox"
+    },
+    {
+      "name":"OmniGuard",
+      "keywords":["security","protect","hack","monitor"],
+      "destination":"omniguard"
+    },
+    {
+      "name":"Gap Hunter",
+      "keywords":["market","opportunity","business","growth"],
+      "destination":"gaphunter"
+    },
+    {
+      "name":"Legal Education AI",
+      "keywords":["court","claim","law","rights"],
+      "destination":"ccldr"
+    },
+    {
+      "name":"Empire Concierge",
+      "keywords":[],
+      "destination":"hq"
+    }
+  ]
+}
