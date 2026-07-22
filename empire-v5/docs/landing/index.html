@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+Francisco Holdings Inc AI Solutions
+</title>
+
+</head>
+
+
+<body>
+
+
+<div id="hero"></div>
+
+<div id="services"></div>
+
+<div id="cta"></div>
+
+
+<script>
+
+async function load(){
+
+for(let item of [
+["hero","../components/hero.html"],
+["services","../components/services.html"],
+["cta","../components/cta.html"]
+]){
+
+let r =
+await fetch(item[1]);
+
+document.getElementById(item[0])
+.innerHTML =
+await r.text();
+
+}
+
+}
+
+
+load();
+
+</script>
+
+
+</body>
+
+</html>

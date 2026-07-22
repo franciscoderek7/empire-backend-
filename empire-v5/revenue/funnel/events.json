@@ -1,0 +1,9 @@
+{
+ "events":[
+  "page_view",
+  "demo_click",
+  "offer_view",
+  "contact_started",
+  "purchase_started"
+ ]
+}
