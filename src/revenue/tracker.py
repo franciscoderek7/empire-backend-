@@ -1,9 +1,10 @@
 class RevenueTracker:
-    def __init__(self):
-        self.revenue=0
 
-    def add(self,value):
-        self.revenue += value
+    def __init__(self):
+        self.sales=[]
+
+    def record(self,amount):
+        self.sales.append(amount)
 
     def total(self):
-        return self.revenue
+        return sum(self.sales)

@@ -1,0 +1,22 @@
+[
+{
+"name":"Construction AI Clone",
+"category":"industry",
+"price":2499
+},
+{
+"name":"Automotive AI Clone",
+"category":"industry",
+"price":2499
+},
+{
+"name":"Business Executive AI",
+"category":"enterprise",
+"price":9999
+},
+{
+"name":"Custom Enterprise AI",
+"category":"custom",
+"price":"contact"
+}
+]
