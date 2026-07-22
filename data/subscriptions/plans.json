@@ -1,0 +1,14 @@
+[
+{
+"name":"Demo",
+"access":"limited"
+},
+{
+"name":"Pro",
+"access":"advanced"
+},
+{
+"name":"Enterprise",
+"access":"full"
+}
+]
