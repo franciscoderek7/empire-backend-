@@ -1,0 +1,16 @@
+{
+ "routes":[
+  {
+   "method":"POST",
+   "path":"/documents/create"
+  },
+  {
+   "method":"GET",
+   "path":"/documents/list"
+  },
+  {
+   "method":"GET",
+   "path":"/documents/:id"
+  }
+ ]
+}
