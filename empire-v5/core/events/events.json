@@ -1,0 +1,10 @@
+{
+ "events":[
+  "lead.created",
+  "payment.completed",
+  "agent.online",
+  "agent.offline",
+  "security.alert",
+  "deployment.updated"
+ ]
+}
