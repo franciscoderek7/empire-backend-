@@ -1,0 +1,10 @@
+{
+  "name": "fhi-empire-v5",
+  "version": "5.0.0",
+  "description": "Francisco Holdings Inc Empire Platform",
+  "private": true,
+  "scripts": {
+    "test": "echo Testing FHI Empire v5",
+    "start": "node core/index.js"
+  }
+}
