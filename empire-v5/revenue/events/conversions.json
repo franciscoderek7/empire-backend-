@@ -1,0 +1,8 @@
+{
+ "events":[
+  "demo_started",
+  "lead_submitted",
+  "consultation_requested",
+  "customer_created"
+ ]
+}

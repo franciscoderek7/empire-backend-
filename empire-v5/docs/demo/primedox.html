@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>PrimeDox AI Demo</title>
+</head>
+
+<body>
+
+<h1>PrimeDox AI Demo</h1>
+
+<p>
+Experience AI-assisted document organization.
+</p>
+
+
+<input 
+id="request"
+placeholder="Describe your document need"
+/>
+
+<button onclick="demo()">
+Generate Demo
+</button>
+
+
+<div id="result"></div>
+
+
+<script>
+
+function demo(){
+
+let value=
+document.getElementById("request").value;
+
+document.getElementById("result")
+.innerHTML=
+`
+<h3>Demo Result</h3>
+<p>
+Your request has been analyzed:
+${value}
+</p>
+<p>
+A production workflow would continue here.
+</p>
+`;
+
+}
+
+</script>
+
+</body>
+</html>
