@@ -1,0 +1,1813 @@
+
+Inside <head> add:
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+Save:
+
+CTRL + O
+ENTER
+CTRL + X
+
+
+---
+
+3. Add safe service-worker cleanup
+
+At the very top of <body> add:
+
+<script>
+if ('serviceWorker' in navigator) {
+ navigator.serviceWorker.getRegistrations()
+ .then(function(registrations){
+   registrations.forEach(function(registration){
+     registration.unregister();
+   });
+ });
+}
+</script>
+
+This tells old installed browsers:
+
+"Remove the previous PWA controller."
+
+
+---
+
+4. Check Three.js exists
+
+Run:
+
+grep -i "three" index.html
+
+Expected:
+
+three.min.js
+
+or:
+
+cdnjs
+unpkg
+threejs.org
+
+
+---
+
+5. Check 3D scene code Run: grep -i 
+"renderer" index.html Expected: 
+THREE.WebGLRenderer Run: grep -i 
+"scene" index.html Expected: new 
+THREE.Scene() --- 6. Commit 
+production lock git add . git 
+commit -m "FHI production cache 
+purge and 3D runtime lock" git push 
+origin master --- 7. Verify live 
+release Wait a few minutes. Run: 
+curl -I 
+https://franciscoholdingsinc.com 
+Look for: 200 OK Then: curl -L 
+https://franciscoholdingsinc.com | 
+grep -i "FHI" --- 8. Phone test 
+Open: 
+https://franciscoholdingsinc.com/?release=3 
+Do not use: old bookmark home 
+screen icon installed app shortcut 
+Use fresh Chrome tab. --- After FHI 
+is loading: Next build block: FHI 
+DEPLOY FIX PHASE 4 Floor Engine 
+Verification We will check: ✅ HQ 
+floor ✅ OmniGuard floor ✅ 
+PrimeDox floor ✅ Vault Velocity 
+floor ✅ TechPetCage floor ✅ CCLDR 
+floor ✅ Remaining 6 floors ✅ 
+PayPal buttons ✅ Revenue tracking
+Proceed with Phase 4 after the homepage confirms the new scene.q
+q
+FHI DEPLOY FIX — PHASE 4
+
+12-FLOOR EMPIRE VERIFICATION + ROUTE RECOVERY
+
+Goal:
+
+Confirm every floor loads, every brand has a working path, and nothing is pointing to the old PWA structure.
+
+
+---
+
+1. Check Current Website Structure
+
+Enter repo:
+
+cd ~/FHI_EMPIRE/empire-v5
+
+List folders:
+
+find . -maxdepth 2 -type d
+
+Find floor files:
+
+find . -iname "*floor*"
+
+Find HTML pages:
+
+find . -name "*.html"
+
+
+---
+
+2. Verify Main Hub
+
+Test:
+
+curl -I https://franciscoholdingsinc.com/
+
+Expected:
+
+HTTP/2 200
+
+Check title:
+
+curl -L https://franciscoholdingsinc.com/ | grep -i title
+
+
+---
+
+3. Verify Floor Routes
+
+Run:
+
+curl -I https://franciscoholdingsinc.com/omniaguard/
+
+curl -I https://franciscoholdingsinc.com/primedox/
+
+curl -I https://franciscoholdingsinc.com/vaultvelocityauto/
+
+curl -I https://franciscoholdingsinc.com/techpetcage/
+
+curl -I https://franciscoholdingsinc.com/ccldr/
+
+curl -I https://franciscoholdingsinc.com/weedlaw/
+
+curl -I https://franciscoholdingsinc.com/beno-x/
+
+curl -I https://franciscoholdingsinc.com/cleanswarm/
+
+curl -I https://franciscoholdingsinc.com/kiaros/
+
+curl -I https://franciscoholdingsinc.com/vigilax/
+
+curl -I https://franciscoholdingsinc.com/techpackcage/
+
+
+---
+
+4. Search for Broken Links
+
+Run:
+
+grep -R "href=" .
+
+Look for:
+
+missing folders
+
+old PWA links
+
+wrong capitalization
+
+
+
+---
+
+5. Verify Floor Registry
+
+Find:
+
+find . -name "*floor-data*"
+
+Open:
+
+cat floor-data.js
+
+Confirm entries:
+
+{
+name:"OmniGuard",
+path:"/omniaguard/"
+}
+
+
+---
+
+6. Verify Three.js Assets
+
+Find:
+
+find . -type f | grep -E "js|glb|gltf|png|jpg"
+
+Check missing files:
+
+grep -R "src=" index.html
+
+
+---
+
+7. Mobile Performance Check
+
+Check viewport:
+
+grep viewport index.html
+
+Expected:
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+---
+
+8. Revenue Button Audit
+
+Find payment buttons:
+
+grep -R "paypal" .
+
+Find pricing:
+
+grep -R "\$49" .
+
+Find CTAs:
+
+grep -R "ENTER THE EMPIRE" .
+
+
+---
+
+9. Create Empire Deployment Report
+
+echo "FHI FLOOR AUDIT $(date)" > floor-audit.txt
+
+Commit:
+
+git add .
+
+git commit -m "FHI 12 floor verification audit"
+
+git push
+
+
+---
+
+PHASE 4 CHECKPOINT
+
+When complete, we should have:
+
+✅ Main skyscraper loading
+✅ No zombie PWA
+✅ 12 routes responding
+✅ Floor registry verified
+✅ Assets loading
+✅ Payment links located
+
+
+---
+
+NEXT: PHASE 5
+
+REVENUE ACTIVATION
+
+Next commands will:
+
+1. Repair PayPal flow
+
+
+2. Connect payment tracking
+
+
+3. Build lead capture
+
+
+4. Launch first paid offer
+
+
+You are currently inside nano editor. The screen shows:
+
+index.html     Modified
+
+That means you have unsaved changes open.
+
+First, save and exit:
+
+1. Press:
+
+
+
+CTRL + O
+
+2. Press:
+
+
+
+ENTER
+
+(to confirm filename)
+
+3. Press:
+
+
+
+CTRL + X
+
+You should return to the Termux command prompt.
+
+
+---
+
+Then run the Phase 4 checks:
+
+1. Confirm location
+
+pwd
+
+Expected:
+
+~/FHI_EMPIRE/empire-v5
+
+
+---
+
+2. Check Git status
+
+git status
+
+You should see your modified index.html.
+
+
+---
+
+3. Commit the PWA removal + 3D changes
+
+git add index.html
+
+git commit -m "FHI 3D skyscraper cache purge update"
+
+git push origin master
+
+
+---
+
+4. Verify live site
+
+After GitHub Pages updates:
+
+curl -L https://franciscoholdingsinc.com | grep -i three
+
+and:
+
+curl -L https://franciscoholdingsinc.com | grep -i canvas
+
+
+---
+
+Once that works, we move into:
+
+PHASE 5 — REVENUE ACTIVATION
+
+Build order:
+
+1. ✅ Lead capture form
+
+
+2. ✅ Customer database
+
+
+3. ✅ First paid offer landing page
+
+
+4. ✅ Payment verification
+
+
+5. ✅ Sales pipeline dashboard
+
+
+
+Right now the priority is: get the new index.html saved and deployed.
+
+
+q
+PHASE 5 — REVENUE ACTIVATION
+
+Step 1: Build Lead Capture System
+
+Goal:
+
+Turn website visitors into measurable leads.
+
+Before scaling to $100K/month, we need:
+
+Visitor → Lead → Conversation → Customer
+
+
+---
+
+1. Create Lead Capture Folder
+
+From your FHI repo:
+
+cd ~/FHI_EMPIRE/empire-v5
+
+Create:
+
+mkdir -p leads
+
+
+---
+
+2. Create Lead Form
+
+Create file:
+
+nano leads/index.html
+
+Paste:
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Phoenix Empire AI Assessment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+<h1>Free AI Business Gap Report</h1>
+
+<p>
+Discover website problems, automation opportunities, and security gaps.
+</p>
+
+<form>
+
+<label>Name</label>
+<input type="text" name="name">
+
+<br>
+
+<label>Email</label>
+<input type="email" name="email">
+
+<br>
+
+<label>Website</label>
+<input type="url" name="website">
+
+<br>
+
+<label>Main Challenge</label>
+<textarea name="problem"></textarea>
+
+<br>
+
+<button type="submit">
+Generate My Report
+</button>
+
+</form>
+
+</body>
+</html>
+
+Save:
+
+CTRL + O
+ENTER
+CTRL + X
+
+
+---
+
+3. Add Lead Capture Link To Homepage
+
+Open:
+
+nano index.html
+
+Add a CTA somewhere visible:
+
+<a href="/leads/">
+FREE AI BUSINESS GAP REPORT
+</a>
+
+Save.
+
+
+---
+
+4. Test Locally
+
+Run:
+
+python -m http.server 8080
+
+Open:
+
+http://localhost:8080/leads/
+
+Confirm form appears.
+
+Stop server:
+
+CTRL + C
+
+
+---
+
+5. Deploy
+
+git add .
+
+git commit -m "add Phoenix lead capture system"
+
+git push origin master
+
+
+---
+
+PHASE 5 CHECKPOINT
+
+Completed:
+
+✅ Lead capture page
+✅ Visitor conversion point
+✅ First revenue funnel entry
+
+Next:
+
+PHASE 5 — STEP 2
+
+Build First Paid Offer
+
+We will create:
+
+OmniGuard AI Website Security Audit
+
+Offer:
+
+Free scan
+
+Paid report
+
+Monthly monitoring upgrade
+
+
+Then connect it to:
+
+PayPal/Stripe
+
+customer records
+
+Phoenix dashboard
+
+
+Proceed after the deploy finishes.
+cq
+Got it — you mean the next 200 commands, not channels. We continue execution mode.
+
+We are now moving from recovery → resurrection → revenue.
+
+I’ll break them into batches of 100 so they are usable in Termux.
+
+COMMAND BATCH 002 (101–200)
+
+FHI REVIVAL — GITHUB PAGES + BACKEND + REVENUE FOUNDATION
+
+
+---
+
+A. FHI Frontend Verification (101–120)
+
+cd ~/FHI_EMPIRE/empire-v5
+
+git status
+
+ls -la
+
+find . -maxdepth 2 -name "index.html"
+
+find . -maxdepth 2 -type d
+
+grep -R "THREE" .
+
+grep -R "WebGLRenderer" .
+
+grep -R "new THREE.Scene" .
+
+grep -R "camera" .
+
+grep -R "renderer" .
+
+grep -R "OrbitControls" .
+
+find . -name "*.js"
+
+find . -name "*.css"
+
+find . -name "*.glb"
+
+find . -name "*.png"
+
+find . -name "*.jpg"
+
+git log --oneline -20
+
+git branch -a
+
+git remote -v
+
+
+---
+
+B. Remove Remaining PWA Ghosts (121–140)
+
+find . -name "sw.js"
+
+find . -name "service-worker.js"
+
+find . -name "manifest.json"
+
+find . -name "workbox*"
+
+grep -R "serviceWorker" .
+
+grep -R "navigator.serviceWorker" .
+
+grep -R "cacheName" .
+
+grep -R "caches.open" .
+
+grep -R "addToHomeScreen" .
+
+grep -R "beforeinstallprompt" .
+
+git status
+
+git add .
+
+git commit -m "remove legacy PWA artifacts"
+
+git push origin master
+
+
+---
+
+C. GitHub Pages Deployment Repair (141–160)
+
+git fetch origin
+
+git pull origin master
+
+git status
+
+echo "FHI DEPLOY $(date)" > deploy.txt
+
+git add deploy.txt
+
+git commit -m "force github pages rebuild"
+
+git push
+
+Check live:
+
+curl -I https://franciscoholdingsinc.com
+
+curl -L https://franciscoholdingsinc.com | head -50
+
+curl -L https://franciscoholdingsinc.com | grep -i "title"
+
+curl -L https://franciscoholdingsinc.com | grep -i "three"
+
+curl -L https://franciscoholdingsinc.com | grep -i "canvas"
+
+curl -L https://franciscoholdingsinc.com | grep -i "empire"
+
+curl -L https://franciscoholdingsinc.com | grep -i "phoenix"
+
+
+---
+
+D. Build Revenue Landing Pages (161–180)
+
+Create offers:
+
+mkdir -p offers
+
+mkdir -p offers/omniguard
+
+mkdir -p offers/primedox
+
+mkdir -p offers/gaphunter
+
+nano offers/omniguard/index.html
+
+Add:
+
+<h1>OmniGuard AI Security Audit</h1>
+<p>Find vulnerabilities before attackers do.</p>
+<button>Start Free Audit</button>
+
+Save.
+
+
+---
+
+nano offers/primedox/index.html
+
+Add:
+
+<h1>PrimeDox AI</h1>
+<p>AI-powered document workflows.</p>
+<button>Start Trial</button>
+
+Save.
+
+
+---
+
+nano offers/gaphunter/index.html
+
+Add:
+
+<h1>Gap Hunter AI</h1>
+<p>Discover hidden business opportunities.</p>
+<button>Scan My Business</button>
+
+Save.
+
+
+---
+
+E. Lead System Foundation (181–200)
+
+mkdir -p leads
+
+nano leads/leads.json
+
+Add:
+
+[]
+
+Save.
+
+
+---
+
+Create database structure:
+
+mkdir -p database
+
+nano database/schema.sql
+
+Add:
+
+CREATE TABLE leads (
+id SERIAL PRIMARY KEY,
+name TEXT,
+email TEXT,
+company TEXT,
+website TEXT,
+created_at TIMESTAMP DEFAULT NOW()
+);
+
+Save.
+
+
+---
+
+Check:
+
+ls -R
+
+Commit:
+
+git add .
+
+git commit -m "add revenue offers and lead foundation"
+
+git push
+
+
+---
+
+STATUS AFTER COMMAND 200
+
+You will have:
+
+✅ FHI repo cleaned
+✅ PWA removal pushed
+✅ Deployment refreshed
+✅ Revenue offer folders created
+✅ Lead system foundation started
+
+Next batch:
+
+COMMAND BATCH 003 (201–300)
+
+Will build:
+
+Render backend repair
+
+Express API
+
+Redis connection
+
+Payment webhook foundation
+
+Customer database
+
+Phoenix HQ dashboard API
+
+
+That is the next major step toward actual revenue.
+COMMAND BATCH 003 (201–300)
+
+FHI REVIVAL — BACKEND + REVENUE ENGINE FOUNDATION
+
+Goal:
+
+Move from a static empire into a working business system:
+
+Website → API → Customer → Payment → Dashboard
+
+
+---
+
+A. Locate Backend Projects (201–220)
+
+cd ~
+
+find . -maxdepth 3 -type d -name "*backend*"
+
+find . -maxdepth 3 -type d -name "*api*"
+
+ls -la
+
+find ~ -name "package.json"
+
+find ~ -name "server.js"
+
+find ~ -name "index.js"
+
+find ~ -name ".env"
+
+find ~ -name "docker-compose.yml"
+
+find ~ -name "README.md"
+
+
+---
+
+B. Repair Empire Backend Repository (221–240)
+
+Enter backend:
+
+cd ~/empire-backend-
+
+Check:
+
+ls -la
+
+Check package:
+
+file package.json
+
+Correct if needed:
+
+nano package.json
+
+Use:
+
+{
+"name":"empire-backend",
+"version":"1.0.0",
+"main":"server.js",
+"scripts":{
+"start":"node server.js"
+},
+"dependencies":{
+"express":"latest",
+"cors":"latest",
+"dotenv":"latest",
+"pg":"latest",
+"redis":"latest"
+}
+}
+
+Save.
+
+
+---
+
+Install:
+
+npm install
+
+
+---
+
+Check:
+
+npm list
+
+
+---
+
+Create server:
+
+nano server.js
+
+Add:
+
+const express=require("express");
+const cors=require("cors");
+
+const app=express();
+
+app.use(cors());
+app.use(express.json());
+
+app.get("/",(req,res)=>{
+res.json({
+status:"Phoenix Core Online"
+});
+});
+
+app.listen(5000,()=>{
+console.log("Empire API running");
+});
+
+Save.
+
+
+---
+
+Run:
+
+npm start
+
+Test:
+
+curl http://localhost:5000
+
+
+---
+
+C. Add Customer API (241–260)
+
+Create:
+
+mkdir routes
+
+Create:
+
+nano routes/customers.js
+
+Add:
+
+const router=require("express").Router();
+
+let customers=[];
+
+router.get("/",(req,res)=>{
+res.json(customers);
+});
+
+router.post("/",(req,res)=>{
+customers.push(req.body);
+res.json({
+created:true,
+customer:req.body
+});
+});
+
+module.exports=router;
+
+Save.
+
+
+---
+
+Connect:
+
+nano server.js
+
+Add:
+
+app.use("/customers",
+require("./routes/customers"));
+
+Restart:
+
+npm start
+
+Test:
+
+curl http://localhost:5000/customers
+
+
+---
+
+D. Add Revenue Tracking API (261–280)
+
+Create:
+
+mkdir revenue
+
+Create:
+
+nano revenue/index.js
+
+Add:
+
+let revenue=[];
+
+module.exports=revenue;
+
+Save.
+
+
+---
+
+Add route:
+
+mkdir routes
+
+nano routes/revenue.js
+
+Add:
+
+const router=require("express").Router();
+
+let sales=[];
+
+router.get("/",(req,res)=>{
+res.json(sales);
+});
+
+router.post("/",(req,res)=>{
+sales.push(req.body);
+res.json({
+success:true
+});
+});
+
+module.exports=router;
+
+Save.
+
+
+---
+
+Connect:
+
+nano server.js
+
+Add:
+
+app.use("/revenue",
+require("./routes/revenue"));
+
+
+---
+
+Test:
+
+curl http://localhost:5000/revenue
+
+
+---
+
+E. Deploy Preparation (281–300)
+
+Check:
+
+git status
+
+Add:
+
+git add .
+
+Commit:
+
+git commit -m "build Phoenix backend revenue foundation"
+
+Push:
+
+git push
+
+
+---
+
+COMMAND BATCH 003 COMPLETE
+
+After this batch:
+
+✅ Backend has working Express core
+✅ Customer endpoint exists
+✅ Revenue endpoint exists
+✅ Render deployment can be repaired
+✅ Phoenix Core has a foundation for payments
+
+
+---
+
+NEXT:
+
+COMMAND BATCH 004 (301–400)
+
+Builds:
+
+Render deployment repair
+
+Environment variables
+
+Redis cache
+
+PostgreSQL connection
+
+PayPal/Stripe webhook foundation
+
+FHI HQ dashboard API
+
+
+This is the bridge from website → actual business machine.COMMAND BATCH 004 (301–400)
+
+FHI REVIVAL — CLOUD DEPLOYMENT + DATABASE + PAYMENT FOUNDATION
+
+Goal:
+
+Connect the pieces:
+
+GitHub → Render → API → Database → Payments → Dashboard
+
+
+---
+
+A. Backend Production Preparation (301–320)
+
+Enter backend:
+
+cd ~/empire-backend-
+
+Check:
+
+git status
+
+ls -la
+
+Check package:
+
+cat package.json
+
+Check Node:
+
+node -v
+
+npm -v
+
+Install production dependencies:
+
+npm install express cors dotenv pg redis
+
+Test startup:
+
+npm start
+
+Stop:
+
+CTRL+C
+
+
+---
+
+B. Create Environment Configuration (321–340)
+
+Create:
+
+nano .env.example
+
+Add:
+
+PORT=5000
+
+DATABASE_URL=
+
+REDIS_URL=
+
+PAYPAL_CLIENT_ID=
+
+PAYPAL_SECRET=
+
+STRIPE_SECRET_KEY=
+
+NODE_ENV=production
+
+Save.
+
+
+---
+
+Create:
+
+nano config.js
+
+Add:
+
+require("dotenv").config();
+
+module.exports={
+port:process.env.PORT || 5000,
+database:process.env.DATABASE_URL,
+redis:process.env.REDIS_URL
+};
+
+Save.
+
+
+---
+
+Update server:
+
+nano server.js
+
+Change:
+
+const config=require("./config");
+
+Change port:
+
+app.listen(config.port,()=>{
+console.log(
+`Phoenix Core running ${config.port}`
+);
+});
+
+Save.
+
+
+---
+
+C. PostgreSQL Connection (341–360)
+
+Create:
+
+mkdir database
+
+Create:
+
+nano database/db.js
+
+Add:
+
+const {Pool}=require("pg");
+
+const pool=new Pool({
+connectionString:
+process.env.DATABASE_URL
+});
+
+module.exports=pool;
+
+Save.
+
+
+---
+
+Create tables:
+
+nano database/schema.sql
+
+Add:
+
+CREATE TABLE IF NOT EXISTS customers(
+id SERIAL PRIMARY KEY,
+email TEXT,
+company TEXT,
+created_at TIMESTAMP DEFAULT NOW()
+);
+
+
+CREATE TABLE IF NOT EXISTS payments(
+id SERIAL PRIMARY KEY,
+customer TEXT,
+amount NUMERIC,
+status TEXT,
+created_at TIMESTAMP DEFAULT NOW()
+);
+
+Save.
+
+
+---
+
+D. Redis Cache Layer (361–375)
+
+Create:
+
+mkdir cache
+
+Create:
+
+nano cache/redis.js
+
+Add:
+
+const redis=require("redis");
+
+const client=redis.createClient({
+url:process.env.REDIS_URL
+});
+
+client.connect();
+
+module.exports=client;
+
+Save.
+
+
+---
+
+E. Payment Event Foundation (376–390)
+
+Create:
+
+mkdir payments
+
+Create:
+
+nano payments/webhook.js
+
+Add:
+
+const router=require("express").Router();
+
+router.post("/webhook",(req,res)=>{
+
+console.log(
+"Payment received",
+req.body
+);
+
+res.json({
+received:true
+});
+
+});
+
+module.exports=router;
+
+Save.
+
+
+---
+
+Connect:
+
+nano server.js
+
+Add:
+
+app.use(
+"/payments",
+require("./payments/webhook")
+);
+
+Save.
+
+
+---
+
+F. Commit Cloud Upgrade (391–400)
+
+Check:
+
+git status
+
+Add:
+
+git add .
+
+Commit:
+
+git commit -m "add production database redis and payment foundation"
+
+Push:
+
+git push origin master
+
+
+---
+
+COMMAND BATCH 004 COMPLETE
+
+Completed:
+
+✅ Production environment template
+✅ Database layer
+✅ Redis layer
+✅ Payment webhook foundation
+✅ Render-ready backend structure
+
+Remaining:
+
+⬜ Connect Render environment variables
+⬜ Attach PostgreSQL
+⬜ Attach Redis
+⬜ Test API online
+⬜ Connect FHI dashboard
+
+
+---
+
+NEXT:
+
+COMMAND BATCH 005 (401–500)
+
+Will build:
+
+Render deployment repair
+
+Live API testing
+
+Phoenix HQ dashboard backend
+
+Lead capture API
+
+Customer pipeline
+
+First automated sales workflow
+
+
+This is where FHI starts behaving like an operating company.
+COMMAND BATCH 005 (401–500)
+
+FHI REVIVAL — RENDER LIVE DEPLOY + PHOENIX HQ CONTROL CENTER
+
+Goal:
+
+Take the repaired backend from local code → live service.
+
+Flow:
+
+GitHub → Render → API → HQ Dashboard → Customers
+
+
+---
+
+A. Render Deployment Preparation (401–420)
+
+Enter backend:
+
+cd ~/empire-backend-
+
+Check:
+
+git status
+
+Check branch:
+
+git branch
+
+Check remote:
+
+git remote -v
+
+Latest commits:
+
+git log --oneline -10
+
+
+---
+
+Create Render start confirmation:
+
+cat package.json
+
+Verify:
+
+"scripts":{
+  "start":"node server.js"
+}
+
+
+---
+
+Create health endpoint:
+
+nano server.js
+
+Add:
+
+app.get("/health",(req,res)=>{
+res.json({
+status:"online",
+service:"Phoenix Core",
+time:new Date()
+});
+});
+
+Save.
+
+
+---
+
+Commit:
+
+git add .
+
+git commit -m "add production health endpoint"
+
+git push
+
+
+---
+
+B. Render Service Configuration (421–440)
+
+In Render dashboard:
+
+Create/repair:
+
+Service:
+empire-backend
+
+Runtime:
+Node
+
+Build Command:
+npm install
+
+Start Command:
+npm start
+
+Environment variables:
+
+Add:
+
+NODE_ENV=production
+PORT=5000
+DATABASE_URL=<postgres url>
+REDIS_URL=<redis url>
+
+
+---
+
+After deployment test:
+
+curl https://YOUR-RENDER-URL/health
+
+Expected:
+
+{
+"status":"online",
+"service":"Phoenix Core"
+}
+
+
+---
+
+C. Lead Capture API (441–460)
+
+Backend:
+
+Create:
+
+mkdir routes
+
+Create:
+
+nano routes/leads.js
+
+Add:
+
+const router=require("express").Router();
+
+let leads=[];
+
+router.get("/",(req,res)=>{
+res.json(leads);
+});
+
+
+router.post("/",(req,res)=>{
+
+leads.push({
+...req.body,
+date:new Date()
+});
+
+res.json({
+success:true,
+message:"Lead captured"
+});
+
+});
+
+
+module.exports=router;
+
+Save.
+
+
+---
+
+Connect:
+
+nano server.js
+
+Add:
+
+app.use(
+"/leads",
+require("./routes/leads")
+);
+
+Save.
+
+
+---
+
+Test:
+
+curl http://localhost:5000/leads
+
+
+---
+
+D. Phoenix HQ Dashboard API (461–480)
+
+Create:
+
+mkdir dashboard
+
+Create:
+
+nano dashboard/stats.js
+
+Add:
+
+module.exports={
+
+revenue:0,
+
+customers:0,
+
+leads:0,
+
+systems:"online"
+
+};
+
+Save.
+
+
+---
+
+Create route:
+
+nano routes/dashboard.js
+
+Add:
+
+const router=require("express").Router();
+
+const stats=require("../dashboard/stats");
+
+router.get("/",(req,res)=>{
+res.json(stats);
+});
+
+module.exports=router;
+
+Save.
+
+
+---
+
+Connect:
+
+nano server.js
+
+Add:
+
+app.use(
+"/dashboard",
+require("./routes/dashboard")
+);
+
+Save.
+
+
+---
+
+Test:
+
+curl http://localhost:5000/dashboard
+
+Expected:
+
+{
+"revenue":0,
+"customers":0,
+"leads":0,
+"systems":"online"
+}
+
+
+---
+
+E. Production Push (481–500)
+
+Check:
+
+git status
+
+Add:
+
+git add .
+
+Commit:
+
+git commit -m "add Phoenix HQ dashboard and lead pipeline"
+
+Push:
+
+git push origin master
+
+
+---
+
+COMMAND BATCH 005 COMPLETE
+
+Completed:
+
+✅ Render-ready backend
+✅ Health monitoring endpoint
+✅ Lead capture API
+✅ Phoenix HQ dashboard API
+✅ Customer pipeline foundation
+
+Current system:
+
+FRANCISCO HOLDINGS INC.
+
+Website
+   |
+   |
+Lead Capture
+   |
+   |
+Phoenix API
+   |
+   |
+Dashboard
+   |
+   |
+Revenue
+
+
+---
+
+NEXT:
+
+COMMAND BATCH 006 (501–600)
+
+Builds:
+
+FHI HQ frontend dashboard
+
+Real-time revenue panel
+
+Customer panel
+
+Lead inbox
+
+OmniGuard control panel
+
+PrimeDox control panel
+
+
+This begins turning the skyscraper into a real operating cockpit.
+lets fix fhi
+
+5. Start $100K/month pipeline
+
+
+
+Run Phase 4 checks first. The output will tell us exactly what is still blocking launch.
+q
+
+
+
+
+
