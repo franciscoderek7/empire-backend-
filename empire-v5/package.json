@@ -1,10 +1,20 @@
 {
-  "name": "fhi-empire-v5",
-  "version": "5.0.0",
-  "description": "Francisco Holdings Inc Empire Platform",
-  "private": true,
+  "name": "empire-backend",
+  "version": "1.0.0",
+  "description": "Francisco Holdings Empire OS Backend",
+  "main": "server.js",
   "scripts": {
-    "test": "echo Testing FHI Empire v5",
-    "start": "node core/index.js"
+    "start": "node server.js",
+    "build": "echo 'Build complete'"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.11.0",
+    "redis": "^4.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
