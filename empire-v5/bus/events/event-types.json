@@ -1,0 +1,10 @@
+{
+ "events":[
+  "lead.created",
+  "demo.started",
+  "task.created",
+  "task.completed",
+  "agent.alert",
+  "payment.received"
+ ]
+}
