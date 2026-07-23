@@ -1,96 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Francisco Holdings Inc. Empire v5</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Francisco Holdings Inc. | 392-Floor Empire</title>
 <style>
-body{
-margin:0;
-overflow:hidden;
-background:#000;
-color:white;
-font-family:Arial;
-}
-
-#status{
-position:absolute;
-top:20px;
-left:20px;
-z-index:10;
-}
-
-#floor{
-position:absolute;
-top:20px;
-right:20px;
-z-index:10;
-}
-
-@import url("css/command.css");
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050508;color:#fff;font-family:'Segoe UI',sans-serif;height:100vh;overflow:hidden}
+#loading{position:fixed;inset:0;z-index:9999;background:#050508;display:flex;flex-direction:column;align-items:center;justify-content:center}
+#loading h1{font-size:2.5rem;background:linear-gradient(135deg,#d4af37,#f4e4ba);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:6px;font-weight:800}
+.spinner{width:80px;height:80px;border:3px solid rgba(212,175,55,0.15);border-top-color:#d4af37;border-radius:50%;animation:spin 1.2s linear infinite;margin:2rem 0}
+@keyframes spin{to{transform:rotate(360deg)}}
+#canvas-container{position:fixed;inset:0;z-index:1}
+.online{position:fixed;top:1rem;right:1rem;color:#00ff88;font-size:0.75rem;font-weight:700;letter-spacing:2px;z-index:100}
+.online::before{content:'';width:8px;height:8px;background:#00ff88;border-radius:50%;display:inline-block;margin-right:0.5rem;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.floor-info{position:fixed;bottom:20%;left:50%;transform:translateX(-50%);text-align:center;z-index:100;padding:1.5rem 2.5rem;background:rgba(10,10,26,0.8);border:1px solid rgba(212,175,55,0.3);border-radius:16px;backdrop-filter:blur(10px);min-width:320px;cursor:pointer}
+.floor-info h1{font-size:1.8rem;color:#d4af37;margin-bottom:0.5rem;font-weight:700}
+.floor-info p{color:#888;font-size:0.9rem}
+#elevator-panel{position:fixed;right:1rem;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;gap:0.3rem;max-height:70vh;overflow-y:auto;padding:0.5rem;background:rgba(10,10,26,0.6);border-radius:12px;border:1px solid rgba(212,175,55,0.1)}
+.elevator-btn{width:36px;height:36px;border:1px solid rgba(212,175,55,0.3);background:rgba(212,175,55,0.05);color:#d4af37;font-size:0.65rem;border-radius:6px;cursor:pointer;transition:all 0.2s}
+.elevator-btn:hover,.elevator-btn.active{background:#d4af37;color:#050508}
+#nav-arrows{position:fixed;bottom:2rem;right:2rem;display:flex;flex-direction:column;gap:0.5rem;z-index:100}
+.nav-arrow{width:50px;height:50px;border:1px solid rgba(212,175,55,0.3);background:rgba(10,10,26,0.8);color:#d4af37;font-size:1.5rem;border-radius:50%;cursor:pointer}
+#paypal-cta{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);padding:1rem 2rem;background:linear-gradient(135deg,#d4af37,#f4e4ba);color:#050508;font-weight:800;border-radius:50px;cursor:pointer;z-index:100;border:none;font-size:14px}
+#floor-counter{position:fixed;top:1rem;left:50%;transform:translateX(-50%);font-size:1.2rem;color:#d4af37;z-index:100;background:rgba(10,10,26,0.8);padding:0.5rem 1.5rem;border-radius:50px;border:1px solid rgba(212,175,55,0.2);font-weight:600}
+#god-mode{position:fixed;top:1rem;left:1rem;font-size:0.6rem;color:rgba(212,175,55,0.4);z-index:100;letter-spacing:2px}
+.soulstack{position:fixed;bottom:1rem;left:1rem;font-size:0.7rem;color:#d4af37;letter-spacing:4px;z-index:100;opacity:0.7}
+#command-center-btn{position:fixed;top:4rem;right:1rem;padding:0.6rem 1.2rem;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);color:#d4af37;border-radius:8px;cursor:pointer;z-index:100;font-size:12px;font-weight:600;letter-spacing:1px;transition:all 0.2s}
+#command-center-btn:hover{background:#d4af37;color:#050508}
 </style>
-
-
 </head>
-
 <body>
-
-<div id="status">
-DEREK FRANCISCO | GOD MODE
-</div>
-
-
-<div id="floorCounter">
-FLOOR 1 / 392
-</div>
-
-<div id="floorInfo">
-Loading Empire...
-</div>
-
-<div id="controls">
-<button onclick="nextFloor()">▲</button>
-<button onclick="previousFloor()">▼</button>
-</div>
-
-<div id="brand">
-SOULSTACK
-</div>
-
-<div id="floor">
-
-● ONLINE
-</div>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-<script src="js/floors.js"></script>
-
-<script src="js/empire.js"></script>
-
-<script src="js/elevator.js"></script>
-<script src="js/konami.js"></script>
-
-
-
-
-<script src="js/revenue.js"></script>
-<script src="js/cta.js"></script>
-
-<div id="chatMount"></div>
-
-<script>
-fetch("chat/widget.html")
-.then(r=>r.text())
-.then(t=>{
-document.getElementById("chatMount").innerHTML=t;
-});
+<div id="loading"><h1>FRANCISCO HOLDINGS INC.</h1><div class="spinner"></div><p style="color:#00f0ff;margin-top:1.5rem;letter-spacing:2px">Constructing 392 Floors...</p><p style="color:#666;font-size:11px;margin-top:8px">PrimeDox AI Clone • OmniGuard • Gap Hunter</p></div>
+<div id="canvas-container"></div>
+<div class="online">● ONLINE</div>
+<div id="god-mode">DEREK FRANCISCO | GOD MODE</div>
+<div id="floor-counter">FLOOR 1 / 392</div>
+<button id="command-center-btn" onclick="window.open('command-center.html','_blank')">⚡ COMMAND CENTER</button>
+<div class="floor-info" id="floor-info" onclick="nextFloor()"><h1 id="floor-name">Francisco Holdings HQ</h1><p id="floor-desc">Luxury corporate ecosystem</p><p id="floor-domain" style="font-size:0.75rem;color:#666">franciscoholdingsinc.com</p></div>
+<div id="elevator-panel"></div>
+<div id="nav-arrows"><button class="nav-arrow" onclick="prevFloor()">▲</button><button class="nav-arrow" onclick="nextFloor()">▼</button></div>
+<button id="paypal-cta" onclick="window.open('https://www.paypal.com/paypalme/TechPetCage/49CAD','_blank')">Start Your Empire — $49/mo</button>
+<div class="soulstack">S O U L S T A C K</div>
+<script type="module">
+import * as THREE from "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.module.js";
+import { gsap } from "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js";
+const companies=[{id:1,name:"Francisco Holdings HQ",desc:"Luxury corporate ecosystem",domain:"franciscoholdingsinc.com",color:"#d4af37",icon:"🏛️"},{id:2,name:"OmniGuard Security",desc:"AI cybersecurity — Gemma 31B powered",domain:"omniaguard.com",color:"#00ff88",icon:"🛡️"},{id:3,name:"PrimeDox AI",desc:"Legal document generation engine",domain:"primedoxai.com",color:"#ff4400",icon:"📄"},{id:4,name:"CCLDR Legal",desc:"Cannabis constitutional law education",domain:"ccldr.net",color:"#00f0ff",icon:"⚖️"},{id:5,name:"Vault Velocity Auto",desc:"Luxury vehicles, jets, yachts brokerage",domain:"vaultvelocityauto.com",color:"#ff0066",icon:"🏎️"},{id:6,name:"TechPetCage",desc:"Smart pet monitoring & protection",domain:"techpetcage.com",color:"#ffaa00",icon:"🐾"},{id:7,name:"Kiaros Time AI",desc:"Time optimization & prediction",domain:"kiaros.com",color:"#aa00ff",icon:"⏰"},{id:8,name:"CleanSwarm",desc:"Autonomous cleaning robot swarms",domain:"cleanswarm.com",color:"#00ffaa",icon:"🤖"},{id:9,name:"BENO-X Constitutional",desc:"Charter rights defense platform",domain:"beno-x.com",color:"#ff4444",icon:"⚖️"},{id:10,name:"Gap Hunter AI",desc:"Market gap detection worth millions",domain:"gaphunter.com",color:"#44ff44",icon:"🔍"},{id:11,name:"WeedLaw Academy",desc:"Cannabis law education for lawyers",domain:"weedlaw-education.thinkific.com",color:"#88ff00",icon:"🌿"},{id:12,name:"VigiLax",desc:"Advanced surveillance & monitoring",domain:"vigilax.com",color:"#ff8800",icon:"👁️"},{id:13,name:"SoulStack",desc:"Loyalty & achievement platform",domain:"soulstack.com",color:"#ff00ff",icon:"💎"},{id:14,name:"CCC Cannabis",desc:"A-to-Z cannabis superhighway",domain:"ccldr.net",color:"#00ff44",icon:"🌿"},{id:15,name:"PrimeDox AI HQ",desc:"Central AI specialist portal",domain:"zprimedoxaihq.com",color:"#ff6600",icon:"🤖"}];
+const names=["Phoenix","Dominion","Ascension","Sovereign","Titan","Apex","Zenith","Pinnacle","Summit","Crown","Throne","Dynasty","Legacy","Heritage","Empire","Realm","Kingdom","Fortress","Citadel","Spire"];
+const types=["Holdings","Ventures","Capital","Partners","Group","Alliance","Collective","Syndicate","Consortium","Enterprises","Innovations","Labs","Studios","Works","Forge","Foundry","Gardens","Fields","Harbor","Port"];
+const suffixes=["International","Global","Worldwide","Universal","Cosmic","Galactic","Infinite","Eternal","Immortal","Divine"];
+for(let i=16;i<=392;i++){const ni=(i-16)%names.length;const ti=Math.floor((i-16)/20)%types.length;const si=Math.floor((i-16)/100)%suffixes.length;companies.push({id:i,name:`${names[ni]} ${types[ti]} ${suffixes[si]}`,desc:`Empire Floor ${i} — Derek Francisco Holdings`,domain:`floor${i}.franciscoholdingsinc.com`,color:`hsl(${(i*137.5)%360},80%,60%)`,icon:"🏢"})}
+const scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x050508,0.0008);
+const camera=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,0.1,5000);
+const renderer=new THREE.WebGLRenderer({antialias:true});renderer.setSize(innerWidth,innerHeight);renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setClearColor(0x050508);document.getElementById("canvas-container").appendChild(renderer.domElement);
+scene.add(new THREE.AmbientLight(0x404060,1.5));const sun=new THREE.DirectionalLight(0xd4af37,1);sun.position.set(100,200,100);scene.add(sun);
+const pls=[];for(let i=0;i<5;i++){const pl=new THREE.PointLight(0xd4af37,0.5,200);pl.position.set(Math.sin(i*1.25)*50,i*80,Math.cos(i*1.25)*50);scene.add(pl);pls.push(pl)}
+const sg=new THREE.BufferGeometry();const sc=Math.min(1800,Math.floor(innerWidth*innerHeight/500));const sp=new Float32Array(sc*3);for(let i=0;i<sc*3;i++)sp[i]=(Math.random()-0.5)*2000;sg.setAttribute("position",new THREE.BufferAttribute(sp,3));scene.add(new THREE.Points(sg,new THREE.PointsMaterial({color:0xffffff,size:1.2,transparent:true,opacity:0.7})));
+const ground=new THREE.Mesh(new THREE.PlaneGeometry(500,500),new THREE.MeshStandardMaterial({color:0x0a0a1a,metalness:0.9,roughness:0.1}));ground.rotation.x=-Math.PI/2;ground.position.y=-5;scene.add(ground);
+const floors=[];const fg=new THREE.Group();scene.add(fg);const fh=8;const fg2=2;const sy=0;
+companies.forEach((c,idx)=>{const i=idx+1;const s=Math.max(3,10-(i*0.015));const geo=new THREE.BoxGeometry(s,fh,s);let col;if(c.color.startsWith('hsl')){const m=c.color.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/);if(m){const h=parseInt(m[1])/360;const s2=parseInt(m[2])/100;const l=parseInt(m[3])/100;col=new THREE.Color().setHSL(h,s2,l)}else col=new THREE.Color(0x888888)}else col=new THREE.Color(c.color);const mat=new THREE.MeshStandardMaterial({color:col,metalness:0.7,roughness:0.3,emissive:col,emissiveIntensity:0.15});const mesh=new THREE.Mesh(geo,mat);mesh.position.y=sy+(i-1)*(fh+fg2);mesh.name=`Floor_${i}`;mesh.userData=c;const rg=new THREE.RingGeometry(s*0.6,s*0.7,32);const rm=new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:0.3,side:THREE.DoubleSide});const ring=new THREE.Mesh(rg,rm);ring.rotation.x=-Math.PI/2;ring.position.y=fh/2+0.1;mesh.add(ring);if(i%3===0){const wg=new THREE.BoxGeometry(s*0.8,fh*0.6,s*1.01);const wm=new THREE.MeshBasicMaterial({color:0xffffaa,transparent:true,opacity:0.1});mesh.add(new THREE.Mesh(wg,wm))}fg.add(mesh);floors.push(mesh)});
+const shaft=new THREE.Mesh(new THREE.CylinderGeometry(1.5,1.5,(fh+fg2)*392,16,1,true),new THREE.MeshBasicMaterial({color:0x333333,transparent:true,opacity:0.2,side:THREE.DoubleSide}));shaft.position.y=((fh+fg2)*392)/2-fh/2;scene.add(shaft);
+const car=new THREE.Mesh(new THREE.BoxGeometry(2,3,2),new THREE.MeshStandardMaterial({color:0xd4af37,metalness:0.9,roughness:0.1,emissive:0xd4af37,emissiveIntensity:0.5}));car.position.set(8,0,8);scene.add(car);
+let cf=1;let ty=0;let ia=false;camera.position.set(25,15,35);camera.lookAt(0,0,0);
+function updateUI(f){const c=companies[f-1];if(!c)return;document.getElementById("floor-name").textContent=c.name;document.getElementById("floor-name").style.color=c.color;document.getElementById("floor-desc").textContent=c.desc;document.getElementById("floor-domain").textContent=c.domain;document.getElementById("floor-counter").textContent=`FLOOR ${f} / 392`;const btn=document.getElementById("paypal-cta");const tiers=[{max:50,price:49},{max:100,price:99},{max:150,price:499},{max:200,price:999},{max:250,price:2999},{max:300,price:9999},{max:350,price:49999}];let price="PRICELESS";for(const t of tiers){if(f<=t.max){price=`$${t.price.toLocaleString()}/mo`;break}}btn.textContent=f===1?"Start Your Empire — $49/mo":f<=350?`Unlock ${c.name} — ${price}`:`${c.name} — PRICELESS`;btn.onclick=()=>{if(f<=350)window.open(`https://www.paypal.com/paypalme/TechPetCage/${price.replace(/[^0-9]/g,'')}CAD`,'_blank');else alert("Floor 351-392: Transcendent Tier. Contact Derek Francisco directly.")};}
+function goTo(f){if(ia||f<1||f>392)return;ia=true;cf=f;ty=(f-1)*(fh+fg2);gsap.to(camera.position,{y:ty+15,duration:2,ease:"power2.inOut",onUpdate:()=>camera.lookAt(0,ty,0)});gsap.to(car.position,{y:ty,duration:2,ease:"power2.inOut"});gsap.to(floors[f-1].rotation,{y:floors[f-1].rotation.y+Math.PI*2,duration:3,ease:"power1.inOut"});setTimeout(()=>{ia=false;updateUI(f)},2000)}
+function nextFloor(){goTo(cf+1)}function prevFloor(){goTo(cf-1)}
+const panel=document.getElementById("elevator-panel");for(let i=1;i<=392;i+=10){const b=document.createElement("button");b.className="elevator-btn";b.textContent=i;b.onclick=()=>goTo(i);panel.appendChild(b)}const tb=document.createElement("button");tb.className="elevator-btn";tb.textContent="▲";tb.style.fontSize="0.5rem";tb.onclick=()=>goTo(392);panel.insertBefore(tb,panel.firstChild);const bb=document.createElement("button");bb.className="elevator-btn";bb.textContent="▼";bb.style.fontSize="0.5rem";bb.onclick=()=>goTo(1);panel.appendChild(bb);
+let sa=0;window.addEventListener("wheel",e=>{sa+=e.deltaY;if(Math.abs(sa)>100){sa>0?nextFloor():prevFloor();sa=0}});let ts=0;window.addEventListener("touchstart",e=>{ts=e.touches[0].clientY});window.addEventListener("touchend",e=>{const d=ts-e.changedTouches[0].clientY;if(Math.abs(d)>50)d>0?nextFloor():prevFloor()});
+let t=0;function animate(){requestAnimationFrame(animate);t+=0.001;scene.children.find(c=>c.type==='Points').rotation.y+=0.0001;pls.forEach((pl,i)=>{pl.position.x=Math.sin(t+i*1.25)*60;pl.position.z=Math.cos(t+i*1.25)*60});floors.forEach((f,i)=>{f.rotation.y+=0.0005*(i%2===0?1:-1)});car.position.y+=Math.sin(t*3)*0.02;renderer.render(scene,camera)}animate();
+window.addEventListener("resize",()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});
+setTimeout(()=>{document.getElementById("loading").style.opacity="0";setTimeout(()=>document.getElementById("loading").style.display="none",1000)},3000);
+let kc=[];const kc2=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];window.addEventListener('keydown',e=>{kc.push(e.key);kc=kc.slice(-10);if(kc.join(',')===kc2.join(',')){alert('🎉 GOD MODE ACTIVATED — Derek Francisco welcomes you to Floor 392');goTo(392)}});
+updateUI(1);
 </script>
-
-<script src="js/agent-router.js"></script>
-
 </body>
-
-
 </html>
