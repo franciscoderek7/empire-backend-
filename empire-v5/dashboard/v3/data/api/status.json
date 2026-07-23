@@ -1,0 +1,5 @@
+{
+ "gateway":"online",
+ "routes":4,
+ "services":"healthy"
+}

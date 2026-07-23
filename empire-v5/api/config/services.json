@@ -1,0 +1,29 @@
+{
+ "services":[
+
+  {
+   "name":"PrimeDox",
+   "route":"/primedox",
+   "status":"online"
+  },
+
+  {
+   "name":"OmniGuard",
+   "route":"/omniguard",
+   "status":"online"
+  },
+
+  {
+   "name":"GapHunter",
+   "route":"/gaphunter",
+   "status":"online"
+  },
+
+  {
+   "name":"EmpireDashboard",
+   "route":"/dashboard",
+   "status":"online"
+  }
+
+ ]
+}
