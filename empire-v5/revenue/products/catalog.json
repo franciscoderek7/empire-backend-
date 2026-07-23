@@ -1,0 +1,22 @@
+{
+ "products":[
+  {
+   "id":"primedox-pro",
+   "name":"PrimeDox AI Pro",
+   "type":"subscription",
+   "price":49
+  },
+  {
+   "id":"ai-business-system",
+   "name":"Custom AI Business System",
+   "type":"service",
+   "price":499
+  },
+  {
+   "id":"enterprise-ai",
+   "name":"Enterprise AI Platform",
+   "type":"enterprise",
+   "price":9999
+  }
+ ]
+}
