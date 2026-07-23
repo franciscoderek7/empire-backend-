@@ -1,0 +1,44 @@
+{
+ "agents":[
+  {
+   "id":"primedox",
+   "name":"PrimeDox AI",
+   "role":"Document workflow assistant",
+   "status":"online",
+   "permissions":[
+    "documents",
+    "templates"
+   ]
+  },
+  {
+   "id":"omniguard",
+   "name":"OmniGuard",
+   "role":"Security monitoring assistant",
+   "status":"online",
+   "permissions":[
+    "security",
+    "alerts"
+   ]
+  },
+  {
+   "id":"gaphunter",
+   "name":"Gap Hunter",
+   "role":"Market opportunity analysis",
+   "status":"standby",
+   "permissions":[
+    "research",
+    "analysis"
+   ]
+  },
+  {
+   "id":"concierge",
+   "name":"Empire Concierge",
+   "role":"Customer routing assistant",
+   "status":"online",
+   "permissions":[
+    "leads",
+    "routing"
+   ]
+  }
+ ]
+}
