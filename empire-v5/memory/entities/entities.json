@@ -1,0 +1,19 @@
+{
+ "entities":[
+  {
+   "id":"fhi",
+   "type":"company",
+   "name":"Francisco Holdings Inc."
+  },
+  {
+   "id":"primedox",
+   "type":"agent",
+   "name":"PrimeDox AI"
+  },
+  {
+   "id":"omniguard",
+   "type":"agent",
+   "name":"OmniGuard"
+  }
+ ]
+}

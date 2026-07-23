@@ -1,0 +1,14 @@
+{
+ "relations":[
+  {
+   "from":"fhi",
+   "type":"owns",
+   "to":"primedox"
+  },
+  {
+   "from":"fhi",
+   "type":"owns",
+   "to":"omniguard"
+  }
+ ]
+}
